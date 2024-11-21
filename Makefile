@@ -1,0 +1,6 @@
+
+
+
+
+
+NAME = libftprintf.a
