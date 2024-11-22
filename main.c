@@ -2,5 +2,5 @@
 
 int main()
 {
-    ft_printf("qwertyuiop");
+    printf("---%d--\n", 0);
 }
