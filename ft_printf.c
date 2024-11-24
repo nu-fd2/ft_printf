@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:19:00 by oel-mado          #+#    #+#             */
-/*   Updated: 2024/11/24 04:05:12 by oel-mado         ###   ########.fr       */
+/*   Updated: 2024/11/24 14:35:57 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	ft_printf(const char *rei, ...)
 	va_start(lain, rei);
 	i = 0;
 	size = 0;
+	if (write(1, NULL, 0) == -1)
+		return (-1);
 	while (rei[i])
 	{
 		if (rei[i] == '%')

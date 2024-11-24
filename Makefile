@@ -6,7 +6,7 @@
 #    By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 02:37:11 by oel-mado          #+#    #+#              #
-#    Updated: 2024/11/24 04:43:49 by oel-mado         ###   ########.fr        #
+#    Updated: 2024/11/24 04:51:59 by oel-mado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,12 @@ ${NAME}: ${OBJ}
 	${CC} ${CFLAGS} -c $< -o $@
 
 main: re ${NAME}
-	${CC} ${CFLAGS} main.c ${NAME} -o out
+	${CC} ${CFLAGS} main.c ${NAME}
 
 clean:
 	rm -f ${OBJ}
+
+test: re clean
 
 fclean: clean
 	rm -f ${NAME}
