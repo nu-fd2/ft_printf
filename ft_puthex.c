@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/24 04:06:54 by oel-mado          #+#    #+#             */
-/*   Updated: 2024/11/24 04:33:30 by oel-mado         ###   ########.fr       */
+/*   Created: 2024/11/24 04:37:09 by oel-mado          #+#    #+#             */
+/*   Updated: 2024/11/24 04:40:06 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+static int	ft_strlen(const char *who)
+{
+	int	ask;
 
-int	ft_printf(const char *s, ...);
+	ask = 0;
+	while (who[ask])
+		ask++;
+	return (ask);
+}
 
-int	ft_putchar(char c);
-int	ft_putnbr(long n);
-int	ft_putstr(char *s);
-int	ft_putadr(unsigned long n);
-int	ft_puthex(unsigned long n, const char *base);
+int	ft_puthex(unsigned long n, const char *base)
+{
+	unsigned long	len;
+	int				i;
 
-#endif //FT_PRINTF_H
+	len = ft_strlen(base);
+	i = 0;
+	if (n >= len)
+	{
+		i += ft_puthex(n / len, base);
+		i += ft_putchar(base[n % len]);
+	}
+	else
+		i += ft_putchar(base[n]);
+	return (i);
+}

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/24 04:06:54 by oel-mado          #+#    #+#             */
-/*   Updated: 2024/11/24 04:33:30 by oel-mado         ###   ########.fr       */
+/*   Created: 2024/11/24 04:39:49 by oel-mado          #+#    #+#             */
+/*   Updated: 2024/11/24 04:39:55 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+int	ft_putstr(char *s)
+{
+	int	i;
 
-int	ft_printf(const char *s, ...);
-
-int	ft_putchar(char c);
-int	ft_putnbr(long n);
-int	ft_putstr(char *s);
-int	ft_putadr(unsigned long n);
-int	ft_puthex(unsigned long n, const char *base);
-
-#endif //FT_PRINTF_H
+	i = 0;
+	if (!s)
+		return (ft_putstr("(null)"));
+	while (s[i])
+		ft_putchar(s[i++]);
+	return (i);
+}
