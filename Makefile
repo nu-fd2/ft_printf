@@ -6,7 +6,7 @@
 #    By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 02:37:11 by oel-mado          #+#    #+#              #
-#    Updated: 2024/11/22 17:32:57 by oel-mado         ###   ########.fr        #
+#    Updated: 2024/11/23 21:42:50 by oel-mado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ ${NAME}: ${OBJ}
 %.o: %.c ft_printf.h
 	${CC} ${CFLAGS} -c $< -o $@
 
-main: ${NAME}
-	${CC} ${CFLAGS} main.c ${NAME} -o main
+main: re ${NAME}
+	${CC} ${CFLAGS} main.c ${NAME} -o out
 
 clean:
 	rm -f ${OBJ}

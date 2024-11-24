@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 01:45:28 by oel-mado          #+#    #+#             */
-/*   Updated: 2024/11/23 06:43:25 by oel-mado         ###   ########.fr       */
+/*   Updated: 2024/11/24 04:00:57 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ int	ft_putstr(char *s)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (ft_putstr("(null)"));
 	while (s[i])
 		ft_putchar(s[i++]);
 	return (i);
 }
 
-static int	ft_intlen(int nbr)
+static int	ft_intlen(long nbr)
 {
 	int	i;
 
@@ -43,12 +45,12 @@ static int	ft_intlen(int nbr)
 	return (i);
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr(long n)
 {
 	if (n == -2147483648)
 	{
 		ft_putstr("-2147483648");
-		return (12);
+		return (11);
 	}
 	if (n <= 0)
 	{
@@ -70,27 +72,40 @@ int	ft_putnbr(int n)
 	return (ft_intlen(n));
 }
 
-int ft_puthex(unsigned long n, int s, int up)
+static int	ft_strlen(const char *who)
 {
-	char *cas;
-	int i;
+	int	ask;
+
+	ask = 0;
+	while (who[ask])
+		ask++;
+	return (ask);
+}
+
+int	ft_puthex(unsigned long n, const char *base)
+{
+	unsigned long	len;
+	int				i;
+
+	len = ft_strlen(base);
+	i = 0;
+	if (n >= len)
+	{
+		i += ft_puthex(n / len, base);
+		i += ft_putchar(base[n % len]);
+	}
+	else
+		i += ft_putchar(base[n]);
+	return (i);
+}
+
+int	ft_putadr(unsigned long n)
+{
+	int	i;
 
 	i = 0;
-	if (up)
-		cas = "0123456789ABCDEF\0";
-	else
-		cas = "0123456789abcdef\0";
-	if (s)
-	{
-		ft_putstr("0x");
-		i += 2;
-	}
-	if (n >= 16)
-	{
-		i += ft_putchar(cas[n /16]);
-		i += ft_putchar(cas[n % 16]);
-	}
-	else
-		i += ft_putchar(cas[n]);
+	ft_putstr("0x");
+	i += 2;
+	i += ft_puthex(n, "0123456789abcdef");
 	return (i);
 }
