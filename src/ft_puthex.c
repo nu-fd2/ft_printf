@@ -6,13 +6,13 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 04:37:09 by oel-mado          #+#    #+#             */
-/*   Updated: 2024/11/24 15:22:40 by oel-mado         ###   ########.fr       */
+/*   Updated: 2024/12/25 20:37:12 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_strlen(const char *who)
+int	ft_strlen(const char *who)
 {
 	int	ask;
 

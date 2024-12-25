@@ -6,13 +6,13 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 04:38:24 by oel-mado          #+#    #+#             */
-/*   Updated: 2024/11/24 15:22:53 by oel-mado         ###   ########.fr       */
+/*   Updated: 2024/12/25 20:37:06 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_intlen(long nbr)
+int	ft_intlen(long nbr)
 {
 	int	i;
 
@@ -29,11 +29,6 @@ static int	ft_intlen(long nbr)
 
 int	ft_putnbr(long n)
 {
-	if (n == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return (11);
-	}
 	if (n <= 0)
 	{
 		if (n == 0)

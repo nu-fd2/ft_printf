@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 01:43:44 by oel-mado          #+#    #+#             */
-/*   Updated: 2024/11/26 01:44:30 by oel-mado         ###   ########.fr       */
+/*   Updated: 2024/12/25 21:03:26 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	ft_prints(const char *rei, va_list lain, int i)
 	else if (rei[i] == 'c')
 		return (ft_putchar(va_arg(lain, int)));
 	else if (rei[i] == 'd' || rei[i] == 'i')
-		return (ft_putnbr((long)va_arg(lain, int)));
+		return (ft_putnbr(va_arg(lain, int)));
 	else if (rei[i] == 'u')
-		return (ft_putnbr((unsigned long)va_arg(lain, unsigned int)));
+		return (ft_putnbr(va_arg(lain, unsigned int)));
 	else if (rei[i] == '%')
 		return (ft_putchar('%'));
 	else if (rei[i] == 'x')
